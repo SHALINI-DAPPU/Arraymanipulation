@@ -1,11 +1,12 @@
-def max_subarray_sum(arr):
-    max1=arr[0]
-    max2=arr[0]
-
-    for i in range(1,len(arr)):
-        max2=max(arr[i],max2+arr[i])
-        max1=max(max(max1,max2))
-
-    return max1;
-arr=[1,2,3,4,5]
-print(max_subarray_sum)
+def maxSubarraySum(arr,n):
+    curr_sum=0
+    max_sum=arr[0]
+    for i in range(len(arr)):
+        if curr_sum<0:
+           curr_sum=0
+        curr_sum+=arr[i]
+        max_sum=max(max_sum,curr_sum)
+    if max_sum<0:
+        return 0
+    return max_sum
+    
